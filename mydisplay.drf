@@ -1,0 +1,122 @@
+;/**********************************************************************
+;*author     :   Write by Official Wechat Account: ICSkillSharing
+;*date       :   2020-08-25
+;*function   :   Create pin from selected symbol for schematic
+;**********************************************************************/
+
+drDefineDisplay(
+;( DisplayName   #Colors   #Stipples   #LineStyels )
+( display        256        256        256  )
+)
+
+
+; -----------------------------------------------------------------
+; ------ Display information for the display device 'display'. ----
+; -----------------------------------------------------------------
+drDefineColor(
+;( DisplayName   for_user_mark_xxx_ColorName   Red   Green   Blue   Blink )
+( display       for_user_mark_xxx_yellow      255    255    0      nil     )
+( display       for_user_mark_xxx_red         255    0      0      nil     )
+( display       for_user_mark_xxx_green       0      204    102    nil     )
+( display       for_user_mark_xxx_magenta     255    0      255    nil     )
+( display       for_user_mark_xxx_cyan        0      255    255    nil     )
+( display       for_user_mark_xxx_purple      153    0      230    nil     )
+( display       for_user_mark_xxx_orange      255    128    0      nil     )
+( display       for_user_mark_xxx_gold        217    204    0      nil     )
+( display       for_user_mark_xxx_blue        0      0      255    nil     )
+( display       for_user_mark_xxx_silver      217    230    255    nil     )
+) ;end of color definitions
+
+drDefineStipple(
+;( DisplayName   StippleName                    Bitmap )
+( display       for_user_mark_xxx_blank       (
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+) )
+( display      for_user_mark_xxx_solid        (
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+(1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1)
+) )
+( display      for_user_mark_xxx_dots         (
+(0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+(0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1)
+(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+) )
+) ;end of stipple definitions
+
+drDefineLineStyle(
+;( DisplayName   for_user_mark_xxx_LineStyle     Size    Pattern )
+( display       for_user_mark_xxx_solid          1      (1 1 1) )
+( display       for_user_mark_xxx_dashed         1      (1 1 1 1 0 0) )
+( display       for_user_mark_xxx_dots           1      (1 0 0) )
+( display       for_user_mark_xxx_thickLine      3      (1 1 1) )
+) ;end of line style definitions
+
+drDefinePacket(
+;( DisplayName   PacketName    for_user_mark_xxx_Stipple    for_user_mark_xxx_LineStyle    for_user_mark_xxx_Fill       for_user_mark_xxx_Outline )
+( display       y0            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_yellow     for_user_mark_xxx_yellow  )
+( display       y1            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_red        for_user_mark_xxx_red     )
+( display       y2            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_green      for_user_mark_xxx_green   )
+( display       y3            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_magenta    for_user_mark_xxx_magenta )
+( display       y4            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_cyan       for_user_mark_xxx_cyan    )
+( display       y5            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_purple     for_user_mark_xxx_purple  )
+( display       y6            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_orange     for_user_mark_xxx_orange  )
+( display       y7            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_gold       for_user_mark_xxx_gold    )
+( display       y8            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_blue       for_user_mark_xxx_blue    )
+( display       y9            for_user_mark_xxx_blank      for_user_mark_xxx_thickLine    for_user_mark_xxx_silver     for_user_mark_xxx_silver  )
+) ; end of packet definitions
+
+drDefinePacketAlias(
+;(DisplayName        PacketAliasName        PacketName )
+(display            y0_drawing             y0         )
+(display            y1_drawing             y1         )
+(display            y2_drawing             y2         )
+(display            y3_drawing             y3         )
+(display            y4_drawing             y4         )
+(display            y5_drawing             y5         )
+(display            y6_drawing             y6         )
+(display            y7_drawing             y7         )
+(display            y8_drawing             y8         )
+(display            y9_drawing             y9         )
+) ; end of packet alias definitions
